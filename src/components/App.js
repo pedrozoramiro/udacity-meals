@@ -1,5 +1,5 @@
   import React, { Component } from 'react'
-  import { addRecipe } from '../actions'
+  import { addRecipe , removeFromCalendar} from '../actions'
   import {connect} from 'react-redux'
   class App extends Component {
     
@@ -10,6 +10,13 @@
           hello
         </div>
       )
+    }
+  }
+
+  function mapDispatchToProps(dispatch){
+    return {
+      addRecipe:data => dispatch(addRecipe(data)),
+      removeFromCalendar: data => dispatch(removeFromCalendar(data))
     }
   }
 
@@ -26,4 +33,4 @@
     };
   }
 
-  export default connect(matStateToProps)(App)
+  export default connect(matStateToProps,mapDispatchToProps)(App)
